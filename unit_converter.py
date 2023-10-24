@@ -9,7 +9,7 @@ def main():
         print("6. Convert Speed")
         print("7. Exit the program")
         choice = input("What do you want to convert? ")
-        break  
+        break
     while choice.isalpha() or int(choice) > 7 or 1 > int(choice):
         print("Please enter the number next to the desired converter. ")
         choice = input("What do you want to convert? ")
@@ -28,7 +28,8 @@ def main():
     elif int(choice) == 7:
         print("Terminating the program. ")
         exit()
-        
+
+
 def length_converter(n):
     print("Length Converter is now active")
     print("1. Convert meter to km")
@@ -68,6 +69,8 @@ def length_converter(n):
         return f"The length in feet is {'%.2f' % feet2} feet"
     else:
         return "Invalid input"
+
+
 def weight_converter(n):
     print("Weight Converter is now active")
     print("1. Convert kgs to pounds")
@@ -107,6 +110,8 @@ def weight_converter(n):
         return f"The weight in grams is {'%.2f' % grams2} grams"
     else:
         return "Invalid input"
+
+
 def volume_converter(n):
     print("Volume Converter is now active")
     print("1. Convert Milliliters to Liters")
@@ -146,6 +151,8 @@ def volume_converter(n):
         return f"The volume in Gallons is {'%.2f' % gal2} Gallons"
     else:
         return "Invalid input"
+
+
 def temp_converter(n):
     print("Temperature Converter is now active")
     print("1. Convert Celsius to Fahrenheit")
@@ -160,14 +167,14 @@ def temp_converter(n):
         while cel.isalpha():
             print("Please enter the temperature in digits ")
             cel = input("Enter the temperature in Celsius: ")
-        fah = (float(cel) * 9/5) / 1000
+        fah = (float(cel) * 9 / 5) / 1000
         return f"The temperature in Fahrenheit is {'%.2f' % fah} degrees"
     elif int(opt) == 2:
         fah2 = input("Enter the temperature in Fahrenheit: ")
         while fah2.isalpha():
             print("Please enter the temperature in digits ")
             fah2 = input("Enter the temperature in Fahrenheit: ")
-        cel2 = (float(fah2) - 32) * 5/9
+        cel2 = (float(fah2) - 32) * 5 / 9
         return f"The temperature in Celsius is {'%.2f' % cel2} degrees"
     elif int(opt) == 3:
         cel3 = input("Enter the temperature in Celsius: ")
@@ -185,6 +192,8 @@ def temp_converter(n):
         return f"The temperature in Celsius is {'%.2f' % cel4} degrees"
     else:
         return "Invalid input"
+
+
 def time_converter(n):
     print("Time Converter is now active")
     print("1. Convert Seconds to Minutes")
@@ -199,7 +208,7 @@ def time_converter(n):
         while sec.isalpha():
             print("Please enter the time in digits ")
             sec = input("Enter the time in Seconds: ")
-        mins = float(sec)  / 60
+        mins = float(sec) / 60
         return f"The time in Minutes is {'%.2f' % mins} minutes"
     elif int(opt) == 2:
         mins2 = input("Enter the time in Minutes: ")
@@ -224,6 +233,8 @@ def time_converter(n):
         return f"The time in Weeks is {'%.2f' % week} weeks"
     else:
         return "Invalid input"
+
+
 def speed_converter(n):
     print("Speed Converter is now active")
     print("1. Convert Kilometers per Hour (km/h) to Miles per Hour (mph)")
@@ -253,7 +264,7 @@ def speed_converter(n):
         return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km2} Kilometers per hour"
     elif int(opt) == 3:
         kmh2 = input("Enter the speed in Kilometers per Hour (km/h): ")
-        while"/" not in kmh2:
+        while "/" not in kmh2:
             print("Please enter the speed in km/h format ")
             kmh2 = input("Enter the speed in Kilometers per Hour (km/h): ")
         km3, hr3 = kmh2.split("/")
@@ -270,9 +281,12 @@ def speed_converter(n):
         km4 = int(real_meter) / 1000
         hour = int(sec) / 3600
         speed = int(km4) / int(hour)
-        return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % speed} km per hour"
+        return (
+            f"The speed in Kilometers per Hour (km/h) is {'%.2f' % speed} km per hour"
+        )
     else:
         return "Invalid input"
+
 
 if __name__ == "__main__":
     main()
