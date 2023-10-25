@@ -1,3 +1,4 @@
+#main function
 def main():
     while True:
         print("Unit converter")
@@ -10,9 +11,11 @@ def main():
         print("7. Exit the program")
         choice = input("What do you want to convert? ")
         break
+    #prompting the user for input if he doesn't opt for any of the provided choices
     while choice.isalpha() or int(choice) > 7 or 1 > int(choice):
         print("Please enter the number next to the desired converter. ")
         choice = input("What do you want to convert? ")
+    #calling the function according to the user's choice
     if int(choice) == 1:
         print(length_converter(choice))
     elif int(choice) == 2:
@@ -29,16 +32,16 @@ def main():
         print("Terminating the program. ")
         exit()
 
-
+#defining length converter function
 def length_converter(n):
     print("Length Converter is now active")
     print("1. Convert meter to km")
     print("2. Convert km to meter")
     print("3. Convert feet to meter")
     print("4. Convert meter to feet")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         meter = input("Enter the length in meters ")
         while meter.isalpha():
@@ -70,16 +73,16 @@ def length_converter(n):
     else:
         return "Invalid input"
 
-
+#defining weight converter function
 def weight_converter(n):
     print("Weight Converter is now active")
     print("1. Convert kgs to pounds")
     print("2. Convert pounds to kgs")
     print("3. Convert kgs to grams")
     print("4. Convert pounds to grams")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         kg = input("Enter the weight in kgs: ")
         while kg.isalpha():
@@ -111,16 +114,16 @@ def weight_converter(n):
     else:
         return "Invalid input"
 
-
+#defining volume converter function
 def volume_converter(n):
     print("Volume Converter is now active")
     print("1. Convert Milliliters to Liters")
     print("2. Convert Liters to Milliliters")
     print("3. Convert Gallons to Liters")
     print("4. Convert Liters to Gallons")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         ml = input("Enter the volume in Milliliters: ")
         while ml.isalpha():
@@ -152,16 +155,16 @@ def volume_converter(n):
     else:
         return "Invalid input"
 
-
+#defining temperature converter function
 def temp_converter(n):
     print("Temperature Converter is now active")
     print("1. Convert Celsius to Fahrenheit")
     print("2. Convert Fahrenheit to Celsius")
     print("3. Convert Celsius to Kelvin")
     print("4. Convert Kelvin to Celsius")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         cel = input("Enter the temperature in Celsius: ")
         while cel.isalpha():
@@ -193,16 +196,16 @@ def temp_converter(n):
     else:
         return "Invalid input"
 
-
+#defining time converter function
 def time_converter(n):
     print("Time Converter is now active")
     print("1. Convert Seconds to Minutes")
     print("2. Convert Minutes to Hours")
     print("3. Convert Hours to Days")
     print("4. Convert Days to Weeks")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         sec = input("Enter the time in Seconds: ")
         while sec.isalpha():
@@ -234,16 +237,16 @@ def time_converter(n):
     else:
         return "Invalid input"
 
-
+#defining speed converter function
 def speed_converter(n):
     print("Speed Converter is now active")
     print("1. Convert Kilometers per Hour (km/h) to Miles per Hour (mph)")
     print("2. Convert Miles per Hour (mph) to Kilometers per Hour (km/h)")
     print("3. Convert Kilometers per Hour (km/h) to Meters per Second (m/s)")
     print("4. Convert Meters per Second (m/s) to Kilometers per Hour (km/h)")
-    opt = input("Select any one option ")
+    opt = input("Select any one option: ")
     while opt.isalpha():
-        opt = input("Select any one option ")
+        opt = input("Select any one option: ")
     if int(opt) == 1:
         kmh = input("Enter the speed in Kilometers per Hour (km/h): ")
         while "/" not in kmh:
@@ -290,3 +293,4 @@ def speed_converter(n):
 
 if __name__ == "__main__":
     main()
+    
