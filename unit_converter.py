@@ -1,7 +1,9 @@
 #main function
 def main():
     while True:
+        print("")
         print("Unit converter")
+        print("")
         print("1. Convert Length")
         print("2. Convert Weight")
         print("3. Convert Volume")
@@ -9,14 +11,18 @@ def main():
         print("5. Convert Time")
         print("6. Convert Speed")
         print("7. Exit the program")
+        print("")
         choice = input("What do you want to convert? ")
-        break
-    #prompting the user for input if he doesn't opt for any of the provided choices
-    while choice.isalpha() or int(choice) > 7 or 1 > int(choice):
-        print("Please enter the number next to the desired converter. ")
-        choice = input("What do you want to convert? ")
+        print("")
+        #prompting the user for input if he doesn't opt for any of the provided choices
+        if choice.isdigit() and 1 <= int(choice) <= 7:
+            choice = int(choice)
+            break
+        else:
+            print("Please enter a valid number between 1 and 7.")
     #calling the function according to the user's choice
     if int(choice) == 1:
+        print("")
         print(length_converter(choice))
     elif int(choice) == 2:
         print(weight_converter(choice))
@@ -30,18 +36,23 @@ def main():
         print(speed_converter(choice))
     elif int(choice) == 7:
         print("Terminating the program. ")
+        print("")
         exit()
 
 #defining length converter function
 def length_converter(n):
     print("Length Converter is now active")
+    print("")
     print("1. Convert meter to km")
     print("2. Convert km to meter")
     print("3. Convert feet to meter")
     print("4. Convert meter to feet")
+    print("")
     opt = input("Select any one option: ")
+    print("")
     while opt.isalpha():
         opt = input("Select any one option: ")
+        print("")
     if int(opt) == 1:
         meter = input("Enter the length in meters ")
         while meter.isalpha():
@@ -285,7 +296,6 @@ def speed_converter(n):
         return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km4} km per hour"
     else:
         return "Invalid input"
-
 
 if __name__ == "__main__":
     main() 
