@@ -22,7 +22,6 @@ def main():
             print("Please enter a valid number between 1 and 7.")
     #calling the function according to the user's choice
     if int(choice) == 1:
-        print("")
         print(length_converter(choice))
     elif int(choice) == 2:
         print(weight_converter(choice))
@@ -296,6 +295,6 @@ def speed_converter(n):
         return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km4} km per hour"
     else:
         return "Invalid input"
-
+    
 if __name__ == "__main__":
     main() 
