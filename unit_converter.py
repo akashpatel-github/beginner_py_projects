@@ -281,16 +281,11 @@ def speed_converter(n):
             ms = input("Enter the speed in Meters per Second (m/s): ")
         meter2, sec = ms.split("/")
         real_meter = int(meter2) / int(sec)
-        km4 = int(real_meter) / 1000
-        hour = int(sec) / 3600
-        speed = int(km4) / int(hour)
-        return (
-            f"The speed in Kilometers per Hour (km/h) is {'%.2f' % speed} km per hour"
-        )
+        km4 = int(real_meter) * 3.600
+        return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km4} km per hour"
     else:
         return "Invalid input"
 
 
 if __name__ == "__main__":
-    main()
-    
+    main() 

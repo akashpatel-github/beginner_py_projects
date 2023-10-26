@@ -1,24 +1,24 @@
 import sys
 
 def main():
-    number = input("Enter a number: ")
-    while number.isalpha():
-        print("Please enter a number")
-        number = input("Enter a number: ")
-    real_no = int(number)
-    prime(real_no)
+    while True:
+        number = input("Enter a number (type 'exit' to quit): ")
+        if number.lower() == 'exit':
+            break
+        while not number.isdigit():
+            print("Please enter a valid number.")
+            number = input("Enter a number (type 'exit' to quit): ")
+        real_no = int(number)
+        result = prime(real_no)
+        print(result)
 
-def prime(n:int):
-    numbers = [3,4,5,6,7]
-    for number in numbers:
-        if n < 0:
-            sys.exit("Please enter a positive number.")    
-        elif n == 1 or n == 0:
-            sys.exit("It is neither prime nor composite number.")
-        elif n % number == 0 or n % 2 == 0:
-            sys.exit("It is a composite number.") 
-        else:
-            sys.exit("It is a prime number.")
+def prime(n):
+    if n <= 1:
+        return "It is neither prime nor composite number."
+    for number in range(2, n):
+        if n % number == 0:
+            return "It is a composite number."
+    return "It is a prime number."
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
