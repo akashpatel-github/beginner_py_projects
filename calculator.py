@@ -27,10 +27,10 @@ def main():
         num1 = input("Enter a number: ")  # Retry input
 
     # Prompt user for the operation and validate the input
-    oper = input("Enter the operation: ")
-    while oper not in ["+", "-", "*", "/", "%", "**"]:  
-        print("Please enter a valid operation")  # Notify user of invalid operation
-        oper = input("Enter the operation: ")  # Retry input
+    oper = input("Enter any one operator ('+', '-', '*', '/'', '%', '**'): ")
+    while oper not in ["+", "-", "*", "/", "%", "**", "sq"]:  
+        print("Please enter a valid operator")  # Notify user of invalid operation
+        oper = input("Enter any one operator ('+', '-', '*', '/'', '%', '**'): ")  # Retry input
 
     # Prompt user for the second number and validate the input
     num2 = input("Enter another number: ")
@@ -49,7 +49,10 @@ def main():
         print("The answer is", int(num1) / int(num2))  # Division
     elif oper == "%":
         print("The answer is", int(num1) % int(num2))  # Modulus
-    elif oper == "**":  
+    elif oper == "**":
+        while int(num2) < 0 or int(num2) > 9:
+            print("The value of the second number should be between 0 and 9")
+            num2 = input("Enter another number: ")
         print("The answer is", int(num1) ** int(num2))  # Exponentiation
     else:
         print("This operation is not available for now")  # Notify user of unsupported operation
