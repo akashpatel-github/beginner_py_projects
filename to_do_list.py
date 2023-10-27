@@ -1,16 +1,14 @@
 from tabulate import tabulate  # Import the tabulate module for formatting data as tables
 import textwrap  # Import textwrap module for wrapping text to fit within specified width
 
-# Define the main function to initiate the program
-def main():
+def main(): # Define the main function to initiate the program
     all_tasks = []  # Initialize an empty list to store tasks
     while True:
         default_view()  # Display the default view with available options
         prompt_again(all_tasks)  # Prompt the user for input based on selected option
         print(" ")
 
-# Function to handle user input and perform corresponding actions
-def prompt_again(all_tasks):
+def prompt_again(all_tasks): # Function to handle user input and perform corresponding actions
     opt = input("What do you want to do?: ")  # Prompt user for choice
     print(" ")
     while not opt.isalpha():
@@ -61,13 +59,17 @@ def view_task(all_tasks):
         print(tabulate(task_list, headers=["serial no.", "Tasks"], tablefmt="grid"))
 
 # Function to add a new task
+# Function to add a new task with description
 def add_task(all_tasks):
-    add = input("New task: ")  # Prompt user for new task
+    task_name = input("New task: ")  # Prompt user for task name
+    task_description = input("Task description: ")  # Prompt user for task description
+    new_task = f"{task_name}: \n {task_description}"  # Create a dictionary for the new task
     print(" ")
     print("New task added to the list")
     print(" ")
-    all_tasks.append(add)  # Add the new task to the list
+    all_tasks.append(new_task)  # Add the new task to the list
     view_task(all_tasks)  # Update view after adding task
+
 
 # Function to delete a task
 def delete_task(all_tasks):
