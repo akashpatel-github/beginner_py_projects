@@ -7,10 +7,10 @@ oper = input("Enter the operation: ")
 while oper not in ["+", "-", "*", "/", "%"]:
     print("Please enter a valid operation")
     oper = input("Enter the operation: ")
-num2 = input("Enter a number: ")
+num2 = input("Enter another number: ")
 while not num2.isdigit():
     print("Please enter a number")
-    num2 = input("Enter a number: ")
+    num2 = input("Enter another number: ")
 if oper == "+":
     print("The answer is", int(num1) + int(num2))
 elif oper == "-":
