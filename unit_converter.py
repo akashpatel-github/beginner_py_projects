@@ -38,7 +38,6 @@ def main():
         print("")
         exit()
 
-
 # defining length converter function
 def length_converter(n):
     print("Length Converter is now active")
@@ -84,7 +83,6 @@ def length_converter(n):
     else:
         return "Invalid input"
 
-
 # defining weight converter function
 def weight_converter(n):
     print("Weight Converter is now active")
@@ -125,7 +123,6 @@ def weight_converter(n):
         return f"The weight in grams is {'%.2f' % grams2} grams"
     else:
         return "Invalid input"
-
 
 # defining volume converter function
 def volume_converter(n):
@@ -168,7 +165,6 @@ def volume_converter(n):
     else:
         return "Invalid input"
 
-
 # defining temperature converter function
 def temp_converter(n):
     print("Temperature Converter is now active")
@@ -210,7 +206,6 @@ def temp_converter(n):
     else:
         return "Invalid input"
 
-
 # defining time converter function
 def time_converter(n):
     print("Time Converter is now active")
@@ -251,7 +246,6 @@ def time_converter(n):
         return f"The time in Weeks is {'%.2f' % week} weeks"
     else:
         return "Invalid input"
-
 
 # defining speed converter function
 def speed_converter(n):
@@ -301,7 +295,6 @@ def speed_converter(n):
         return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km4} km per hour"
     else:
         return "Invalid input"
-
 
 if __name__ == "__main__":
     main()
