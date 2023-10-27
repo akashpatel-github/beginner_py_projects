@@ -26,7 +26,7 @@ while int(guess) != pick:
     elif int(guess) < pick:
         print("Please guess a bigger number.")
 
-    guess = int(input("Guess the random number: "))
+    guess = int(input("Guess the number: "))
 
 # Print a success message when the correct number is guessed
 print("You've guessed the right number!")

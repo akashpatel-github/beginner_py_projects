@@ -32,7 +32,7 @@ def sqrt():
 def main():
     sqrt()
     # Prompt user for the first number and validate the input
-    print("Other operators like ('+', '-', '*', '/'', '%', '**') active")
+    print("Other operators like ('+', '-', '*', '/'', '%', '**') are now active")
     num1 = input("Enter a number: ")
     while not num1.isdigit():
         print("Please enter a number")  # Notify user of invalid input
