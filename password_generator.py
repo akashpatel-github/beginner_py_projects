@@ -1,7 +1,8 @@
 import random
 import string
 
-#main function
+
+# main function
 def main():
     total = input("How many passwords do you want? ")
     while total.isalpha():
@@ -9,7 +10,7 @@ def main():
         total = input("How many passwords do you want? ")
     while int(total) < 1:
         print("At least one password will be generated")
-        total = input("How many passwords do you want? ") 
+        total = input("How many passwords do you want? ")
     length = input("Enter the maximum length of your password: ")
     while length.isalpha():
         print("Please enter a number")
@@ -20,38 +21,44 @@ def main():
     for _ in range(int(total)):
         a = 1
         while a <= int(total):
-            print(f"{a}. ", end="") 
+            print(f"{a}. ", end="")
             real_password(int(length))
-            a +=1
+            a += 1
             print(" ")
         break
 
-#generate random digits
+
+# generate random digits
 def digit(n):
     return random.choice(string.digits)
 
-#generate uppper case characters
-def uppercase(n):       
+
+# generate uppper case characters
+def uppercase(n):
     return random.choice(string.ascii_uppercase)
 
-#generate lower case characters
+
+# generate lower case characters
 def lowercase(n):
     return random.choice(string.ascii_lowercase)
 
-#generate punctuation characters
+
+# generate punctuation characters
 def punctuation(n):
     return random.choice(string.punctuation)
 
-#compile everything
+
+# compile everything
 def real_password(n):
     for _ in range(n):
-        password=[]
+        password = []
         password.append(digit(n))
         password.append(lowercase(n))
         password.append(uppercase(n))
         password.append(punctuation(n))
         r1 = random.choice(password)
         print(r1, end="")
-         
+
+
 if __name__ == "__main__":
     main()
