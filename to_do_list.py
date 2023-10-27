@@ -1,12 +1,14 @@
 from tabulate import tabulate
 import textwrap
 
+
 def main():
     all_tasks = []
     while True:
         default_view()
         prompt_again(all_tasks)
         print(" ")
+
 
 def prompt_again(all_tasks):
     opt = input("What do you want to do?: ")
@@ -16,7 +18,7 @@ def prompt_again(all_tasks):
         print(" ")
         default_view()
         opt = input("What do you want to do?: ")
-        
+
     if opt.lower() == "v":
         view_task(all_tasks)
     elif opt.lower() == "a":
@@ -33,12 +35,26 @@ def prompt_again(all_tasks):
         print(" ")
         print("Please enter a valid key.")
 
+
 def default_view():
     print("To-do List")
     print(" ")
-    print(tabulate([["Key","Actions"],["V","View all tasks"],["A","Add new task"],["U","Update a task"],["D","Delete a task"],["E","Exit"]],
-            headers="firstrow", tablefmt="grid"))
+    print(
+        tabulate(
+            [
+                ["Key", "Actions"],
+                ["V", "View all tasks"],
+                ["A", "Add new task"],
+                ["U", "Update a task"],
+                ["D", "Delete a task"],
+                ["E", "Exit"],
+            ],
+            headers="firstrow",
+            tablefmt="grid",
+        )
+    )
     print(" ")
+
 
 def view_task(all_tasks):
     task_list = list(enumerate(all_tasks, start=1))
@@ -46,10 +62,14 @@ def view_task(all_tasks):
     print(" ")
     if not task_list:
         all_tasks = ["You are all set!"]
-        wrapped_tasks = [(idx, textwrap.fill(task, width=30)) for idx, task in enumerate(all_tasks, start=0)]
+        wrapped_tasks = [
+            (idx, textwrap.fill(task, width=30))
+            for idx, task in enumerate(all_tasks, start=0)
+        ]
         print(tabulate(wrapped_tasks, headers=["serial no.", "Tasks"], tablefmt="grid"))
     else:
         print(tabulate(task_list, headers=["serial no.", "Tasks"], tablefmt="grid"))
+
 
 def add_task(all_tasks):
     add = input("New task: ")
@@ -58,6 +78,7 @@ def add_task(all_tasks):
     print(" ")
     all_tasks.append(add)
     view_task(all_tasks)  # Update view after adding task
+
 
 def delete_task(all_tasks):
     if not all_tasks:
@@ -92,6 +113,7 @@ def update_task(all_tasks):
         updated = input("New updated task: ")
         all_tasks[int(update) - 1] = updated
         print("Task updated successfully.")
+
 
 if __name__ == "__main__":
     main()

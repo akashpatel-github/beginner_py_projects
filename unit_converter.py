@@ -1,4 +1,4 @@
-#main function
+# main function
 def main():
     while True:
         print("")
@@ -14,13 +14,13 @@ def main():
         print("")
         choice = input("What do you want to convert? ")
         print("")
-        #prompting the user for input if he doesn't opt for any of the provided choices
+        # prompting the user for input if he doesn't opt for any of the provided choices
         if choice.isdigit() and 1 <= int(choice) <= 7:
             choice = int(choice)
             break
         else:
             print("Please enter a valid number between 1 and 7.")
-    #calling the function according to the user's choice
+    # calling the function according to the user's choice
     if int(choice) == 1:
         print(length_converter(choice))
     elif int(choice) == 2:
@@ -38,7 +38,8 @@ def main():
         print("")
         exit()
 
-#defining length converter function
+
+# defining length converter function
 def length_converter(n):
     print("Length Converter is now active")
     print("")
@@ -83,7 +84,8 @@ def length_converter(n):
     else:
         return "Invalid input"
 
-#defining weight converter function
+
+# defining weight converter function
 def weight_converter(n):
     print("Weight Converter is now active")
     print("1. Convert kgs to pounds")
@@ -124,7 +126,8 @@ def weight_converter(n):
     else:
         return "Invalid input"
 
-#defining volume converter function
+
+# defining volume converter function
 def volume_converter(n):
     print("Volume Converter is now active")
     print("1. Convert Milliliters to Liters")
@@ -165,7 +168,8 @@ def volume_converter(n):
     else:
         return "Invalid input"
 
-#defining temperature converter function
+
+# defining temperature converter function
 def temp_converter(n):
     print("Temperature Converter is now active")
     print("1. Convert Celsius to Fahrenheit")
@@ -206,7 +210,8 @@ def temp_converter(n):
     else:
         return "Invalid input"
 
-#defining time converter function
+
+# defining time converter function
 def time_converter(n):
     print("Time Converter is now active")
     print("1. Convert Seconds to Minutes")
@@ -247,7 +252,8 @@ def time_converter(n):
     else:
         return "Invalid input"
 
-#defining speed converter function
+
+# defining speed converter function
 def speed_converter(n):
     print("Speed Converter is now active")
     print("1. Convert Kilometers per Hour (km/h) to Miles per Hour (mph)")
@@ -295,6 +301,7 @@ def speed_converter(n):
         return f"The speed in Kilometers per Hour (km/h) is {'%.2f' % km4} km per hour"
     else:
         return "Invalid input"
-      
+
+
 if __name__ == "__main__":
-    main() 
+    main()
