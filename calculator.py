@@ -10,17 +10,29 @@ def sqrt():
             print("Please enter a number ")
             numsq = input("Enter the number you want to calculate the square root of: ")
         print (f"The sqaure root of {numsq} is {'%.2f' % math.sqrt(int(numsq))}") # Priniting the sqrt of the provided number
-        new_opt = input("Do you want to continue? (yes/no): ")
+        new_opt = input("Do you want to quit the square function? (yes/no): ")
         while new_opt.lower()!="yes" and new_opt.lower()!="no":
             print("Please enter a valid choice ")
             new_opt = input("Do you want to continue? (yes/no): ")
-        if new_opt.lower() == "no":
-            print("See you then!")
-            exit()
+        if new_opt.lower() == "yes":
+            new_opt2 = input("Do you want to quit the program? (yes/no): ")
+            while new_opt2.lower()!="yes" and new_opt2.lower()!="no":
+                print("Please enter a valid choice ")
+                new_opt2 = input("Do you want to quit the program? (yes/no): ")
+            if new_opt2.lower()=="yes":
+                print("See you then!")
+                exit()
+            else:
+                ...
+        else:
+            sqrt()
+
+        
 
 def main():
     sqrt()
     # Prompt user for the first number and validate the input
+    print("Other operators like ('+', '-', '*', '/'', '%', '**') active")
     num1 = input("Enter a number: ")
     while not num1.isdigit():
         print("Please enter a number")  # Notify user of invalid input
