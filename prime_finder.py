@@ -1,6 +1,3 @@
-import sys
-
-
 def main():
     while True:
         number = input("Enter a number (type 'exit' to quit): ")
@@ -13,7 +10,6 @@ def main():
         result = prime(real_no)
         print(result)
 
-
 def prime(n):
     if n <= 1:
         return "It is neither prime nor composite number."
@@ -21,7 +17,6 @@ def prime(n):
         if n % number == 0:
             return "It is a composite number."
     return "It is a prime number."
-
 
 if __name__ == "__main__":
     main()
