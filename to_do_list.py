@@ -63,13 +63,12 @@ def view_task(all_tasks):
 def add_task(all_tasks):
     task_name = input("New task: ")  # Prompt user for task name
     task_description = input("Task description: ")  # Prompt user for task description
-    new_task = f"{task_name}: \n {task_description}"  # Create a dictionary for the new task
+    new_task = f"{task_name}:- \n {task_description}"  # Create a dictionary for the new task
     print(" ")
     print("New task added to the list")
     print(" ")
     all_tasks.append(new_task)  # Add the new task to the list
     view_task(all_tasks)  # Update view after adding task
-
 
 # Function to delete a task
 def delete_task(all_tasks):
