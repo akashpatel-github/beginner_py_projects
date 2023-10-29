@@ -1,5 +1,5 @@
 from random import randint, choice
-import sys
+
 # Main function to initiate the game
 def main():
     # Ask the user what game they want to play
@@ -23,6 +23,9 @@ def number_guess():
     while not limit.isdigit():
         print("Please enter a number")
         limit = input("Enter an upper limit: ")
+    while int(limit)<5:
+        print("Please enter the upper limit to be 5 atleast")
+        limit = input("Enter an upper limit: ")
     print("Guess a number between 0 and " + limit)
 
     # Generate a random number within the specified limit
@@ -32,14 +35,7 @@ def number_guess():
     while count > 0:
         guess = input("Guess (type 'e' to exit): ")
         count-=1
-        if count == 1:
-            print("1 try left")
-        elif count == 0:
-            print("You've lost the game") 
-            play_again()
-            exit()
-        else:
-            print(count,"tries left")
+        
         if guess.lower() == 'e':
             print("Goodbye!")
             return  # Exit the number_guess() function and return to main()
@@ -50,13 +46,22 @@ def number_guess():
             continue
         
         guess = int(guess)
-        
+        if count == 1:
+            print("1 try left")
+        elif count == 0:
+            print("You've lost the game") 
+            play_again()
+            exit()
+        else:
+            print(count,"tries left")
+
         # Check if the guess is within the range
         if guess > int(limit) or guess < 0:
             print("Please enter a number within 0 and " + limit)
         elif guess == pick:
             print("You've guessed the right number!")
-            break
+            play_again()
+            exit()
         elif guess > pick:
             print("Please guess a smaller number.")
         elif guess < pick:
@@ -72,15 +77,6 @@ def word_guess():
     while count>0:
         guess = input("Guess a letter or the whole word: ").lower()
         count-=1
-        if count == 1:
-            print("1 try left")
-        elif count == 0:
-            print("You've lost the game") 
-            print("The word was: "+ word_to_guess)
-            play_again()
-            exit()
-        else:
-            print(count,"tries left")
 
         # Check if the input is a valid letter or a valid word
         if len(guess) == 1 and guess.isalpha():
@@ -99,7 +95,8 @@ def word_guess():
         elif len(guess) == len(word_to_guess) and guess.isalpha():
             if guess == word_to_guess:
                 print("Correct! You've guessed the word: " + word_to_guess)
-                break
+                play_again()
+                return
             else:
                 print("Incorrect guess.")
         else:
@@ -107,11 +104,17 @@ def word_guess():
             continue
 
         print("Guessed word: " + " ".join(guessed_word))
+        
+        if count == 1:
+            print("1 try left")
+        elif count == 0:
+            print("You've lost the game") 
+            print("The word was: "+ word_to_guess)
+            play_again()
+            exit()
+        else:
+            print(count,"tries left")
 
-        # Check if the word has been completely guessed
-        if '_' not in guessed_word:
-            print("You've guessed the word! It was: " + word_to_guess)
-            break
 # Function asking the user to play again
 def play_again():            
     # Prompt the user asking to play again
