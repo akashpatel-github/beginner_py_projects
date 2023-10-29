@@ -7,8 +7,8 @@ def main():
     print("Here is the Fibonacci Series till " + limit + ":")
     fibonacci(int(limit))  # Call the fibonacci function with the provided limit
 
-# Function to generate and print Fibonacci series up to a given limit
-def fibonacci(n: int):
+def fibonacci(n: int):# Function to generate and print Fibonacci series up to a given limit
+
     a, b = 0, 1  # Initialize the first two numbers of the Fibonacci series
     while b <= n:  # Loop until the next Fibonacci number is less than or equal to the limit
         series = b  # Store the current Fibonacci number in the 'series' variable

@@ -27,8 +27,6 @@ def sqrt():
         else:
             sqrt()
 
-        
-
 def main():
     sqrt()
     # Prompt user for the first number and validate the input
@@ -68,5 +66,6 @@ def main():
         print("The answer is", int(num1) ** int(num2))  # Exponentiation
     else:
         print("This operation is not available for now")  # Notify user of unsupported operation
+
 if __name__ == "__main__":
     main()
