@@ -78,8 +78,7 @@ def word_guess():
     count = 10
     while count>0:
         guess = input("Guess a letter or the whole word: ").lower()
-        count-=1
-
+ 
         # Check if the input is a valid letter or a valid word
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
@@ -98,15 +97,15 @@ def word_guess():
             if guess == word_to_guess:
                 print("Correct! You've guessed the word: " + word_to_guess)
                 play_again()
-                return
+                exit()
             else:
                 print("Incorrect guess.")
         else:
-            print("Invalid input. Please enter a single letter or the whole word.")
+            print("Invalid input. Please enter a single letter or a word of",len(word_to_guess),"letters.")
             continue
 
         print("Guessed word: " + " ".join(guessed_word))
-        
+        count-=1
         if count == 1:
             print("1 try left")
         elif count == 0:
