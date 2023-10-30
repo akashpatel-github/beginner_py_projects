@@ -34,7 +34,6 @@ def number_guess():
     # Continue looping until the user guesses the correct number or types 'e' to exit
     while count > 0:
         guess = input("Guess (type 'e' to exit): ")
-        count-=1
         
         if guess.lower() == 'e':
             print("Goodbye!")
@@ -46,14 +45,7 @@ def number_guess():
             continue
         
         guess = int(guess)
-        if count == 1:
-            print("1 try left")
-        elif count == 0:
-            print("You've lost the game") 
-            play_again()
-            exit()
-        else:
-            print(count,"tries left")
+        
 
         # Check if the guess is within the range
         if guess > int(limit) or guess < 0:
@@ -62,11 +54,21 @@ def number_guess():
             print("You've guessed the right number!")
             play_again()
             exit()
-        elif guess > pick:
-            print("Please guess a smaller number.")
-        elif guess < pick:
-            print("Please guess a bigger number.")
-
+        if count >1:
+            if guess > pick:
+                print("Please guess a smaller number.")
+            elif guess < pick:
+                print("Please guess a bigger number.")
+        count-=1
+        if count == 1:
+            print("1 try left")
+        elif count == 0:
+            print("You've lost the game")
+            print("The number was",pick) 
+            play_again()
+            exit()
+        else:
+            print(count,"tries left")
 # Function to handle the word guessing game
 def word_guess():
     words = ["python", "hangman", "programming", "computer", "developer", "pizza", "twitter", "java", "javascript", "html"]
