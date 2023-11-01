@@ -32,17 +32,29 @@ def default_view():
     print("Currency Converter")
     print("")
     # Display options as a table
-    print(tabulate([["Key", "Currency"], ["C", "CAD to: "], ["P", "GBP to: "],
-                        ["U", "USD to: "], ["I", "INR to: "], ["E", "Exit"]],
+    print(tabulate([["Key", "Currency"], ["C", "CAD"], ["P", "GBP"],
+                        ["U", "USD"], ["I", "INR"], ["E", "Exit the program"]],
                     headers="firstrow", tablefmt="grid"))
+    main()
     
 def cad_converter():
-    ...
+    print("Convert from CAD to:")
+    print(tabulate([["1", "USD"], ["2", "INR"], ["3", "GBP"]],
+                     tablefmt="grid"))
+    main()
 def gbp_converter():
-    ...
+    print("Convert from GBP to:")
+    print(tabulate([["1", "USD"], ["2", "INR"], ["3", "CAD"]],
+                     tablefmt="grid"))
+    main()
 def usd_converter():
-    ...
+    print("Convert from USD to:")
+    print(tabulate([["1", "INR"], ["2", "CAD"], ["3", "GBP"]],
+                     tablefmt="grid"))
 def inr_converter():
-    ...
+    print("Convert from INR to:")
+    print(tabulate([["1", "USD"], ["2", "CAD"], ["3", "GBP"]],
+                     tablefmt="grid"))
+    main()
 if __name__ == "__main__":
     main()
