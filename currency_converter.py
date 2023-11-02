@@ -1,60 +1,75 @@
-from tabulate import tabulate  # Import the tabulate module for formatting data as tables
-import textwrap  # Import textwrap module for wrapping text to fit within specified width
-# main function
-def main():
-    default_view()
-    print("")
-    opt = input("What do you want to convert? ")
-    print("")
-    while not opt.isalpha():
-        print("Please enter the key next to the provided options. ")  # Ensure valid input
-        print(" ")
-          # Display options again
-        opt = input("What do you want to do?: ")  # Prompt user for choice again
+from tabulate import tabulate
 
-    if opt.lower() == "c":
-        cad_converter()
-    elif opt.lower() == "p":
-        gbp_converter()
-    elif opt.lower() == "u":
-        usd_converter()
-    elif opt.lower() == "i":
-        inr_converter()
-    elif opt.lower() == "e":
-        print("Terminating the Currency Converter program. See you!")  # Exit the program
-        print(" ")
-        exit()
-    else:
-        print(" ")
-        print("Please enter a valid key.")
+# Define fixed exchange rates (as of today)
+exchange_rates = {
+    "USD": 1.0,
+    "CAD": 1.39,  # Example exchange rate: 1 USD = 1.35 CAD
+    "GBP": 0.83,  # Example exchange rate: 1 USD = 0.75 GBP
+    "INR": 83.30,  # Example exchange rate: 1 USD = 74 INR
+}
+
+# Function to display the main menu and handle user input
+def main():
+    while True:
+        default_view()  # Display the default view with available options
+        print()
+        opt = input("What do you want to convert? ")  # Prompt user for choice
+        print()
+
+        # Validate user input to ensure it is a letter
+        while not opt.isalpha():
+            print("Please enter the key next to the provided options.")
+            print()
+            opt = input("What do you want to do?: ")
+            print()
+
+        if opt.lower() == "c":
+            currency_converter("CAD")  # Call CAD converter function
+        elif opt.lower() == "p":
+            currency_converter("GBP")  # Call GBP converter function
+        elif opt.lower() == "u":
+            currency_converter("USD")  # Call USD converter function
+        elif opt.lower() == "i":
+            currency_converter("INR")  # Call INR converter function
+        elif opt.lower() == "e":
+            print("Terminating the Currency Converter program. See you!")  # Exit the program
+            print()
+            break  # Exit the loop and end the program
+        else:
+            print("Please enter a valid key.")
+            print()
+
+# Function to display the default menu options
 def default_view():
-    print("")
-    print("Currency Converter")
+    print("Currency Converter is now active")
     print("")
     # Display options as a table
     print(tabulate([["Key", "Currency"], ["C", "CAD"], ["P", "GBP"],
-                        ["U", "USD"], ["I", "INR"], ["E", "Exit the program"]],
+                    ["U", "USD"], ["I", "INR"], ["E", "Exit the program"]],
                     headers="firstrow", tablefmt="grid"))
-    main()
+
+# Function for currency conversion
+def currency_converter(from_currency):
+    to_currency = input(f"Convert from {from_currency} to (USD/CAD/GBP/INR): ").upper()
+    while to_currency not in exchange_rates:
+        print("Enter a valid currency from the available options")
+        to_currency = input(f"Convert from {from_currency} to (USD/CAD/GBP/INR): ").upper()
     
-def cad_converter():
-    print("Convert from CAD to:")
-    print(tabulate([["1", "USD"], ["2", "INR"], ["3", "GBP"]],
-                     tablefmt="grid"))
-    main()
-def gbp_converter():
-    print("Convert from GBP to:")
-    print(tabulate([["1", "USD"], ["2", "INR"], ["3", "CAD"]],
-                     tablefmt="grid"))
-    main()
-def usd_converter():
-    print("Convert from USD to:")
-    print(tabulate([["1", "INR"], ["2", "CAD"], ["3", "GBP"]],
-                     tablefmt="grid"))
-def inr_converter():
-    print("Convert from INR to:")
-    print(tabulate([["1", "USD"], ["2", "CAD"], ["3", "GBP"]],
-                     tablefmt="grid"))
-    main()
+    amount = get_valid_amount(f"Please enter the amount in {from_currency} to be converted into {to_currency}: ")
+
+    exchange_rate = exchange_rates[to_currency] / exchange_rates[from_currency]
+    converted_amount = amount * exchange_rate
+    print(f"{amount} {from_currency} is equal to {converted_amount:.2f} {to_currency}.")
+
+# Function to validate the amount input
+def get_valid_amount(prompt):
+    while True:
+        amount = input(prompt)
+        if amount.isdigit():
+            return int(amount)
+        else:
+            print("Enter a valid amount.")
+
+# Check if the script is run directly
 if __name__ == "__main__":
-    main()
+    main()  # Call the main function to start the program
